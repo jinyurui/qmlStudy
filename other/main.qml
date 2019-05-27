@@ -64,16 +64,6 @@ Window {
                     }
                 }
                 clip: true
-                //            highlight: Component{
-                //                Rectangle{
-                //                    width: view.width
-                //                    height: 50
-                //                    color: "#11223300"
-                //                    border.color: "#00ffff"
-                //                    border.width: 3
-                //                }
-                //            }
-                //            highlightFollowsCurrentItem: true
             }
 
             Text {
