@@ -37,4 +37,5 @@ HEADERS += \
     layoutseter.h
 
 DISTFILES += \
-    LayoutTest.json
+    LayoutTest.json \
+    readme

@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.5
 import CPLUS 1.0
+import MyPlug 1.0 as Plugins
 
 Window {
     id: window
@@ -9,6 +10,7 @@ Window {
     width: 640
     height: 480
     title: qsTr("Hello World")
+
     property int showIndex: -1
     property string itemInfo: getInfo(showIndex)
     onItemInfoChanged: {
@@ -27,6 +29,10 @@ Window {
         default:
             return ""
         }
+    }
+
+    Plugins.TestItem{
+        id: qmlPluginTest
     }
 
     ListModel{
@@ -91,7 +97,6 @@ Window {
                     anchors.fill: parent
                     id: mouseArea
                     onClicked: {
-                        //viewModel.append({desc: "123"})
                         viewModel.insert(view.currentIndex + 1, {desc: "123"})
                     }
                 }
@@ -150,6 +155,7 @@ Window {
                     onClicked: {
                         flipable.flipped = !flipable.flipped
                         console.log(flipable.state)
+                        qmlPluginTest.testHelp()
                     }
                 }
 

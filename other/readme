@@ -1,0 +1,13 @@
+this pro main include:
+
+1. c++ to qml               >>  Srctext
+2. item render process      >>  ItemLayout
+3. json help to set item    >>  LayoutSeter
+   proterty(int) by
+   other *.json file
+
+4. Flipable rota animal     >>  main.qml
+5. drag option on mousearea >>  main.qml
+6. ShaderEffectSource       >>  main.qml
+7. qml plugin               >>  main.cpp main.qml
+   [about how to create qml plugin, you can see GPlugin pro]

@@ -1,0 +1,30 @@
+
+this pro about how to create qml plugin.
+
+[process]
+First, we need to inherit the QQmlExtensionPlugin class, which is an abstract base class that provides plugins for QML loading.
+
+2. then we need to use the Q_PLUGIN_METADATA macro in its subclass to register its plugin to Qt's meta object system.
+
+3. Rewrite the pure virtual function registerTypes() and use qmlRegisterType() to register the QML type in the plugin, which is the same as we did in the main function.
+
+4. Then we need to write a plugin project file, including TEMPLATE, CONFIG, DESTDIR, TARGET, and so on.
+
+5. Finally, we also need to create a qmldir file to describe the plugin.
+
+
+[node][qmldir file desc] more can see "Module Definition qmldir Files" on QtHelp
+module MyPlug                >>    as model to import.This is [moduleName]
+plugin GenericPlugin         >>    as plugin to create, then you can use item name on qml.This is c++ class name
+
+
+[node][pro file]
+TEMPLATE = lib
+CONFIG += plugin
+
+
+[how to use]
+1. build pro, then copy *.dll + *.qmldir to "you use pathDir/[moduleName]/"
+2. create new app, addImportPath("you use pathDir/")
+3. import [moduleName],then you can use you speitem.
+

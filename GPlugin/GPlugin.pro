@@ -7,11 +7,11 @@
 # this pro is not ok
 QT       += core gui qml quick
 
-TARGET = GPlugin
+TARGET = GenericPlugin
 TEMPLATE = lib
 CONFIG += plugin
 
-DESTDIR = $$[QT_INSTALL_PLUGINS]/generic
+#DESTDIR = $$[QT_INSTALL_PLUGINS]/generic
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -32,7 +32,8 @@ HEADERS += \
         genericplugin.h \
     testitem.h
 DISTFILES += \ 
-    qmldir
+    qmldir \
+    readme
 
 unix {
     target.path = /usr/lib
