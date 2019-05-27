@@ -1,0 +1,3 @@
+module MyPlug
+plugin MY_GenericPlugin
+classname GenericPlugin
