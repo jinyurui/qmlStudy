@@ -4,6 +4,7 @@
 #
 #-------------------------------------------------
 
+# this pro is not ok
 QT       += core gui qml quick
 
 TARGET = GPlugin
