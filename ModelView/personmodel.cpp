@@ -7,28 +7,32 @@ PersonModel::PersonModel(QObject *parent)
 
 }
 
-void PersonModel::setJsonArray(const QJsonArray &other)
+QJsonArray PersonModel::personJsonArray() const
 {
-    if(m_jsonArray!=other){
-        beginResetModel();
-        m_jsonArray = other;
-        endResetModel();
-    }
+    return m_personJsonArray;
+}
 
+void PersonModel::setPersonJsonArray(QJsonArray personJsonArray)
+{
+    if (m_personJsonArray == personJsonArray)
+        return;
+
+    m_personJsonArray = personJsonArray;
+    emit personJsonArrayChanged(m_personJsonArray);
 }
 
 int PersonModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return m_jsonArray.size();
+    return m_personJsonArray.size();
 }
 
 QVariant PersonModel::data(const QModelIndex &index, int role) const
 {
-    if(index.row() > m_jsonArray.size() || index.row() < 0){
+    if(index.row() > m_personJsonArray.size() || index.row() < 0){
         return  QVariant();
     }
-    QJsonValue item = m_jsonArray.at(index.row());
+    QJsonValue item = m_personJsonArray.at(index.row());
     if(item.isObject()){
         QJsonObject object = item.toObject();
         switch (role) {

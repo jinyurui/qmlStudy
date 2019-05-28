@@ -8,17 +8,17 @@
 class PersonModel:public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(QJsonArray personJsonArray READ personJsonArray WRITE setPersonJsonArray NOTIFY personJsonArrayChanged)
+
 public:
     PersonModel(QObject *parent = nullptr);
     enum userole{
-        name = Qt::DisplayRole,
-        place = Qt::UserRole,
+        name = Qt::UserRole,
+        place ,
         number,
         rich,
     };
     Q_ENUM(userole)
-
-    Q_INVOKABLE void setJsonArray(QJsonArray const & other);
 
 public:
     // Inherited form QAbstractListModel
@@ -26,8 +26,17 @@ public:
     QVariant               data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
 
+    QJsonArray personJsonArray() const;
+
+
+public slots:
+    void setPersonJsonArray(QJsonArray personJsonArray);
+
+signals:
+    void personJsonArrayChanged(QJsonArray personJsonArray);
+
 private:
-    QJsonArray m_jsonArray;
+    QJsonArray m_personJsonArray;
 };
 
 #endif // PERSONMODEL_H
