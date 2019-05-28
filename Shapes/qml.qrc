@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ShapeContext.qml</file>
+        <file>background.png</file>
+    </qresource>
+</RCC>

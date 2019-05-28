@@ -6,5 +6,6 @@ SUBDIRS += \
     ComLoader \
     other \
     FlipAnimation \
-    GPlugin
+    GPlugin \
+    Shapes
 
