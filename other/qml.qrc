@@ -4,7 +4,6 @@
         <file>DragTest.qml</file>
         <file>back.png</file>
         <file>icon-60-back-blue.png</file>
-        <file>background.png</file>
         <file>LayoutTest.json</file>
         <file>LayoutTest.qml</file>
     </qresource>

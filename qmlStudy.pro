@@ -7,5 +7,6 @@ SUBDIRS += \
     other \
     FlipAnimation \
     GPlugin \
-    Shapes
+    Shapes \
+    ModelView
 
