@@ -8,5 +8,6 @@ SUBDIRS += \
     FlipAnimation \
     GPlugin \
     Shapes \
-    ModelView
+    ModelView \
+    Stack
 
