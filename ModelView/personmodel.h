@@ -4,11 +4,13 @@
 #include <QObject>
 #include <QAbstractListModel>
 #include <QJsonArray>
+class PersonDataMap;
 
 class PersonModel:public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QJsonArray personJsonArray READ personJsonArray WRITE setPersonJsonArray NOTIFY personJsonArrayChanged)
+    Q_PROPERTY(PersonDataMap* personMapData READ personMapData)
 
 public:
     PersonModel(QObject *parent = nullptr);
@@ -27,7 +29,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     QJsonArray personJsonArray() const;
-
+    PersonDataMap* personMapData() const;
 
 public slots:
     void setPersonJsonArray(QJsonArray personJsonArray);
@@ -37,6 +39,7 @@ signals:
 
 private:
     QJsonArray m_personJsonArray;
+    PersonDataMap* m_personMapData;
 };
 
 #endif // PERSONMODEL_H

@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "personmodel.h"
+#include "persondatamap.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +11,11 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
+    //qRegisterMetaType<PersonDataMap>("PersonDataMap");
+    //qRegisterMetaType<PersonDataMap*>("PersonDataMap *");
+
     qmlRegisterType<PersonModel>("CPLUS", 1, 0, "PersonModel");
+    qmlRegisterType<PersonDataMap>("CPLUS", 1, 0, "PersonDataMap");
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

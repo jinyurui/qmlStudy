@@ -1,10 +1,11 @@
 #include "personmodel.h"
 #include <QJsonObject>
+#include "persondatamap.h"
 
 PersonModel::PersonModel(QObject *parent)
     :QAbstractListModel (parent)
 {
-
+    m_personMapData = new PersonDataMap(this);
 }
 
 QJsonArray PersonModel::personJsonArray() const
@@ -19,6 +20,22 @@ void PersonModel::setPersonJsonArray(QJsonArray personJsonArray)
 
     m_personJsonArray = personJsonArray;
     emit personJsonArrayChanged(m_personJsonArray);
+
+    QVariantMap data;
+    int id = 0;
+    for(auto it = personJsonArray.begin(); it != personJsonArray.end(); ++it){
+        if(it->isObject()){
+            data.insert(QString::number(id++), it->toVariant());// [QString, QVar]
+        }
+    }
+    if(!data.isEmpty()){
+        m_personMapData->setMapData(data);
+    }
+}
+
+PersonDataMap* PersonModel::personMapData() const
+{
+    return m_personMapData;
 }
 
 int PersonModel::rowCount(const QModelIndex &parent) const

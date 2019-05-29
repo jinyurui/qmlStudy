@@ -3,12 +3,18 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 2.5
 import CPLUS 1.0
 
+/** node
+* @key    jsonArray in qml and c++
+* @desc   jsonArray from qml can use easy, then turn c++ to qml,the objetc can not use key
+*/
+
 Window {
     id: root
     visible: true
     width: 640
     height: 480
     title: qsTr("Hello World")
+    // jsonarray
     property var modelData: [
         {name:"q",
             place:"SHANGHAI",
@@ -62,6 +68,10 @@ Window {
                 MouseArea{
                     id:mouseArea
                     anchors.fill: parent
+                    onClicked: {
+                        var object = personModel.personMapData.getValue(index)
+                        console.log("get info : " + object.name + object.place + object.number + object.rich)
+                    }
                 }
             }
             Row{
@@ -94,6 +104,18 @@ Window {
                 anchors.centerIn: parent
                 text: section
             }
+        }
+    }
+    Button{
+        id:testbtn
+        anchors.left: view.right
+        anchors.top: root.top
+        anchors.topMargin: 20
+        width: 200
+        height: 100
+        text: "test qml jsonarray"
+        onClicked: {
+            console.log("json qml to qml : " + modelData[0].name + modelData[0].place + modelData[0].number + modelData[0].rich)
         }
     }
 }
