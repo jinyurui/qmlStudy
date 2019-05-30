@@ -1,5 +1,7 @@
 import QtQuick 2.0
 import QtQuick 2.4
+import QtGraphicalEffects 1.12
+
 /** quetion
 * @key   src rotation not effect to shadereffectsourc
 * @desc  src rotation not effect to shadereffectsourc
@@ -21,10 +23,21 @@ Item {
         anchors.leftMargin: 0
         color: mouseArea.containsPress ? "#456789" : "#aabbcc"
         Text {
+            id: strShow
             anchors.centerIn: parent
             color: mouseArea.containsPress ? "#000000" : "yellow"
             text: "3D-Text"
             font.pointSize: 20
+        }
+
+        DropShadow{
+            anchors.fill: strShow
+            color: "#000000"
+            source: strShow
+            horizontalOffset: 25   // off_x_y
+            verticalOffset: 15
+            radius: 5              // blu up when radius up ; samples = 1 + 2*radius
+            spread: 0.3            // color up 0->1
         }
 
         MouseArea{
@@ -37,7 +50,7 @@ Item {
             interval: 200
             running: true
             onTriggered: {
-
+                srcTextImage.rotation += 15
             }
         }
     }
