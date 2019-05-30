@@ -36,6 +36,7 @@ Window {
                     anchors.fill: parent
                     onClicked: {
                         listView.currentIndex = index
+                        stackViewPush(index)
                     }
                 }
             }
@@ -86,11 +87,20 @@ Window {
         anchors.rightMargin: 0
         anchors.left: vline.right
         anchors.leftMargin: 0
-        initialItem:Text3D{
+//        initialItem:Text3D{
+//            anchors.fill: parent
+//        }
+        initialItem: Gama{
             anchors.fill: parent
         }
     }
+    ListModel{
+        id:graphiclModel
+    }
 
+    function stackViewPush(index){
+        //mainView.push("qrc:/GraphicalEffect.qml")
+    }
 }
 
 

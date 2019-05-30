@@ -12,7 +12,7 @@ import QtGraphicalEffects 1.12
 */
 Item {
     id: element
-
+    anchors.fill: parent
     Rectangle{
         id: srcTextImage
         width: 200
@@ -54,6 +54,7 @@ Item {
             }
         }
     }
+
     ShaderEffectSource{
         id: iamgeSrc
         width: 150

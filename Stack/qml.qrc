@@ -2,5 +2,10 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Text3D.qml</file>
+        <file>GraphicalEffect.qml</file>
+        <file>GraphicalItem.qml</file>
+        <file>Gama.qml</file>
+        <file>balls.jpg</file>
+        <file>balloons.jpg</file>
     </qresource>
 </RCC>
