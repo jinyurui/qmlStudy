@@ -98,6 +98,16 @@ Window {
         id:graphiclModel
     }
 
+
+    BeautifulText{
+        z: 10
+        anchors.left: parent.left
+        anchors.leftMargin: leftView.width + 30
+        anchors.top: parent.top
+        anchors.topMargin: title.height + 30
+        fontSize: 24
+        text: "Image done by graphicalEffect"
+    }
     function stackViewPush(index){
         //mainView.push("qrc:/GraphicalEffect.qml")
     }

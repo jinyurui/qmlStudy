@@ -67,11 +67,11 @@ Item {
 * @key    gamma no effect
 * @desc
 */
-//    GammaAdjust{
-//        source: srcImage
-//        anchors.fill: srcImage
-//        gamma: gamma.value
-//    }
+    //    GammaAdjust{
+    //        source: srcImage
+    //        anchors.fill: srcImage
+    //        gamma: gamma.value
+    //    }
     LevelAdjust {
         id: levelGraphical
         anchors.fill: srcImage
@@ -103,6 +103,7 @@ Item {
     }
 
     Blend {
+        id:blendGraphical
         anchors.left: srcImage.right
         anchors.leftMargin: 30
         width: srcImage.width
@@ -111,4 +112,43 @@ Item {
         foregroundSource: levelGraphical
         mode: "subtract"
     }
+
+    Rectangle{
+        id: srcRect
+        width: 100
+        height: 30
+        radius: 5
+        color: "#abcdef"
+        anchors.left: blendGraphical.right
+        anchors.leftMargin: 30
+        anchors.top: parent.top
+        anchors.topMargin: 50
+    }
+    RectangularGlow{
+        width: 50
+        height: 15
+        anchors.centerIn: srcRect
+        spread: 0.2
+        color: "#55ff55"
+        glowRadius:2
+
+    }
+    Glow{
+        anchors.left: srcRect.left
+        anchors.top: srcRect.bottom
+        anchors.topMargin: 20
+        width: srcRect.width
+        height: srcRect.height
+        source: srcRect
+        color: Qt.lighter("yellow")
+        spread: 0.8
+        samples: 19
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                console.log("click")
+            }
+        }
+    }
+
 }

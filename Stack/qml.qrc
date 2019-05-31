@@ -7,5 +7,6 @@
         <file>Gama.qml</file>
         <file>balls.jpg</file>
         <file>balloons.jpg</file>
+        <file>BeautifulText.qml</file>
     </qresource>
 </RCC>
