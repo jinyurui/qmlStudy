@@ -9,5 +9,6 @@ SUBDIRS += \
     GPlugin \
     Shapes \
     ModelView \
-    Stack
+    Stack \
+    CommonlyUsed
 
