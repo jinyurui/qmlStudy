@@ -8,5 +8,6 @@
         <file>balls.jpg</file>
         <file>balloons.jpg</file>
         <file>BeautifulText.qml</file>
+        <file>Config.qml</file>
     </qresource>
 </RCC>

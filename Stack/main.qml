@@ -8,6 +8,11 @@ Window {
     width: 860
     height: 480
     title: qsTr("Hello World")
+
+    Config{
+        id:config
+    }
+
     Rectangle{
         id: leftView
         anchors.left: parent.left
@@ -17,7 +22,7 @@ Window {
         anchors.top: parent.top
         anchors.topMargin: 0
         width: root.width/5
-        color: "#666666"
+        color: config.backGroundColor
         ListView{
             id: listView
             anchors.fill: parent
@@ -25,14 +30,15 @@ Window {
             delegate: Rectangle{
                 width: parent.width
                 height: 50
-                color: "#123123"
+                color: itemMouse.pressed ? config.itemColor : config.pressColor
                 Text {
                     id: showStr
                     anchors.centerIn: parent
                     text: index
-                    color: "#89a89a"
+                    color: config.textColor
                 }
                 MouseArea{
+                    id: itemMouse
                     anchors.fill: parent
                     onClicked: {
                         listView.currentIndex = index

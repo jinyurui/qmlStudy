@@ -10,5 +10,6 @@ SUBDIRS += \
     Shapes \
     ModelView \
     Stack \
-    CommonlyUsed
+    CommonlyUsed \
+    WorkerScript
 
