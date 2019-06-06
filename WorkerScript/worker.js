@@ -1,20 +1,14 @@
-var srcDataModel = 0;
 
 WorkerScript.onMessage = function(message) {
-    if(!srcDataModel){
-        srcDataModel = message.srcModel;
-    }
-    if(srcDataModel){
-
-        WorkerScript.sendMessage({'type': 'cout', 'ret': srcDataModel.count});
+    if(message.srcModel){
         if(message.action === "sort"){
             console.log("sort!!!!!!!!!!!")
-            var count = srcDataModel.count;
+            var count = message.srcModel.count;
             console.log(count);
             for(var i = 0; i < count-1; i++){
                 for(var j = 0; j < count-1-i; j++){
-                    if(srcDataModel.get(j).age > srcDataModel.get(j+1).age){
-                        //srcDataModel.move(j, j+1, 1)
+                    if(message.srcModel.get(j).age > message.srcModel.get(j+1).age){
+                        //message.srcModel.move(j, j+1, 1)
                     }
                 }
             }
@@ -22,7 +16,7 @@ WorkerScript.onMessage = function(message) {
         }else if(message.action === "add"){
             console.log("add!!!!!!!!!!!!")
             for(i = 0; i < 10; i++){
-                srcDataModel.append({ "name": "Polly",
+                message.srcModel.append({ "name": "Polly",
                                      "type": "Parrot",
                                      "age": i%10,
                                      "size": "Small"});
@@ -30,11 +24,11 @@ WorkerScript.onMessage = function(message) {
             WorkerScript.sendMessage({'type': 'add', 'ret': 'add 10 ok'});
         }else if(message.action === "clear"){
             console.log("clear!!!!!!!!!!!!")
-            srcDataModel.clear();
+            message.srcModel.clear();
         }else if(message.action === "move"){
             console.log("move!!!!!!!!!!!!!")
-            srcDataModel.move(0, 2, 1);
-            //        srcDataModel.insert(srcDataModel.count, { "name": "qe",
+            message.srcModel.move(0, 2, 1);
+            //        message.srcModel.insert(message.srcModel.count, { "name": "qe",
             //                             "type": "e",
             //                             "age": 1001,
             //                             "size": "e"})
@@ -47,22 +41,29 @@ WorkerScript.onMessage = function(message) {
             //ASSERT: "!this->isEmpty()" in
         }else if(message.action === "del"){
             console.log("del!!!!!!!!!!!!!")
-            srcDataModel.remove(0);
+            message.srcModel.remove(0);
             WorkerScript.sendMessage({'type': 'del', 'ret': 'ok'});
         }else if(message.action === "sync"){
             console.log("sync!!!!!!!!!!!!")
-            srcDataModel.sync();
-            console.log(srcDataModel.count);
+            message.srcModel.sync();
+            console.log(message.srcModel.count);
             return;
+        }else if(message.action === "delegateMove"){
+            console.log("delegateMove!!!!! you should not see this item!!");
+            message.srcModel.items.move(0,1,1);
+            console.log(message.srcModel.count);
         }
 
-        console.log("--------------    " + srcDataModel.count);
+        console.log("--------------    " + message.srcModel.count);
 
-        if(srcDataModel){
-            srcDataModel.sync();
+        if(message.srcModel){
+            message.srcModel.sync();
             WorkerScript.sendMessage({'type': 'over', 'ret': 'ok'});
         }else{
             WorkerScript.sendMessage({'type': 'null', 'ret': 'ok'});
         }
+    }
+    else{
+        console.log("err!!!!!!!!")
     }
 }

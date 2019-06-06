@@ -6,10 +6,14 @@ import QtQml.Models 2.12
 * @key    listmodle sync diff thread, and list drag and drop
 * @desc   this pro has question, so if you need self sort and on, you best use c++ cusmodel [ListModel]
 */
+/** help
+* @key    search WorkerScript ListModel move sort...
+* @desc
+*/
 Window {
     id: root
     visible: true
-    width: 1000
+    width: 1080
     height: 480
 
     ListModel{
@@ -31,7 +35,8 @@ Window {
     DelegateModel {
         id: visualModel
 
-        //model: dataModel
+        model: dataModel
+        delegate: easyCom
         //delegate: dragDelegate
     }
 
@@ -43,7 +48,7 @@ Window {
         anchors.bottom: parent.bottom
         width: 200
 
-        //model: visualModel
+        model: visualModel
 
         //spacing: 4
         //cacheBuffer: 50
@@ -127,27 +132,28 @@ Window {
         anchors.right: parent.right
         clip: true
         model: dataModel
-        delegate: Component{
-            Rectangle {
-                id: contentR
-                width: parent.width
-                height: columnR.implicitHeight + 4
-                border.width: 1
-                border.color: "lightsteelblue"
-                radius: 2
-                Column {
-                    id: columnR
-                    anchors { fill: parent; margins: 2 }
+        delegate: easyCom
+    }
+    Component{
+        id: easyCom
+        Rectangle {
+            id: contentR
+            width: parent.width
+            height: columnR.implicitHeight + 4
+            border.width: 1
+            border.color: "lightsteelblue"
+            radius: 2
+            Column {
+                id: columnR
+                anchors { fill: parent; margins: 2 }
 
-                    Text { text: 'Name: ' + name }
-                    Text { text: 'Type: ' + type }
-                    Text { text: 'Age: ' + age }
-                    Text { text: 'Size: ' + size }
-                }
+                Text { text: 'Name: ' + name }
+                Text { text: 'Type: ' + type }
+                Text { text: 'Age: ' + age }
+                Text { text: 'Size: ' + size }
             }
         }
     }
-
     Row{
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -199,9 +205,9 @@ Window {
         Button{
             text: "move"
             onClicked: {
-                var message = {'action' : 'move', 'srcModel': dataModel}
-                worker.sendMessage(message)
-                //dataModel.move(0,1,1)
+                //var message = {'action' : 'move', 'srcModel': dataModel}
+                //worker.sendMessage(message)
+                dataModel.move(0,1,1)
             }
         }
         Button{
@@ -210,6 +216,19 @@ Window {
                 var message = {'action' : 'del', 'srcModel': dataModel}
                 worker.sendMessage(message)
                 //dataModel.remove(0)
+            }
+        }
+
+        Button{
+            text: "delegateMoelMove"
+            onClicked: {
+                /** errinfo
+                * @key    WorkerScript limit message tyle,
+                * @desc   so this cuse srcModel = 0
+                */
+                //var message = {'action' : 'delegateMove', 'srcModel': visualModel}
+                //worker.sendMessage(message)
+                visualModel.items.move(0,1,1); // != dataModel.move(0,1,1) ; before is deleModle no effect to srcmodel
             }
         }
     }
