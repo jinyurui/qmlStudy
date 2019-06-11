@@ -11,5 +11,7 @@ SUBDIRS += \
     ModelView \
     Stack \
     CommonlyUsed \
-    WorkerScript
+    WorkerScript \
+    Advance \
+    Protobuf
 
