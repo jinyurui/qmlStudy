@@ -24,7 +24,9 @@ RESOURCES += qml.qrc
 #    D:\QtProject\qmlStudy\Protobuf\proto_data> protoc .\addressbook.proto --cpp_out=..\proto_out
 # proto is 3.8.0
 ## buld err
+
 INCLUDEPATH += ../
+
 
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -38,10 +40,17 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+
 HEADERS += \
     proto_out/addressbook.pb.h
 
 DISTFILES += \
     proto_data/addressbook.proto
 
+
+DISTFILES += \
+    proto_data/addressbook.proto
+
+HEADERS += \
+    proto_out/addressbook.pb.h
 
