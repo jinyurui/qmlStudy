@@ -14,5 +14,6 @@ SUBDIRS += \
     WorkerScript \
     Advance \
     Protobuf \
-    TableOne
+    TableOne \
+    Shader
 
