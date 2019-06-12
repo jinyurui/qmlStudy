@@ -13,5 +13,6 @@ SUBDIRS += \
     CommonlyUsed \
     WorkerScript \
     Advance \
-    Protobuf
+    Protobuf \
+    TableOne
 
