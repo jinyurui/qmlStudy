@@ -13,7 +13,7 @@ SUBDIRS += \
     CommonlyUsed \
     WorkerScript \
     Advance \
-    Protobuf \
     TableOne \
-    Shader
+    Shader \
+    ProArc
 

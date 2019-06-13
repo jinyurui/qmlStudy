@@ -14,20 +14,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    proto_out/addressbook.pb.cc
+    data.cpp \
+    datacon.cpp \
+    dataimp.cpp \
+    srcdata.cpp
 
 RESOURCES += qml.qrc
-
-#add google protobuf src
-#you can bulid .proto like:
-#    protoc.exe path has been set environment
-#    D:\QtProject\qmlStudy\Protobuf\proto_data> protoc .\addressbook.proto --cpp_out=..\proto_out
-# proto is 3.8.0
-## buld err
-
-INCLUDEPATH += ../
-
-
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -40,17 +32,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-
 HEADERS += \
-    proto_out/addressbook.pb.h
-
-DISTFILES += \
-    proto_data/addressbook.proto
-
-
-DISTFILES += \
-    proto_data/addressbook.proto
-
-HEADERS += \
-    proto_out/addressbook.pb.h
-
+    data.h \
+    datacon.h \
+    dataimp.h \
+    srcdata.h
