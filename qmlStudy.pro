@@ -15,5 +15,6 @@ SUBDIRS += \
     Advance \
     TableOne \
     Shader \
-    ProArc
+    ProArc \
+    TextSpeech
 
