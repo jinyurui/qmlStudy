@@ -16,5 +16,6 @@ SUBDIRS += \
     TableOne \
     Shader \
     ProArc \
+	Observer \
     TextSpeech
 
