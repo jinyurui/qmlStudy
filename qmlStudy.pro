@@ -17,5 +17,7 @@ SUBDIRS += \
     Shader \
     ProArc \
 	Observer \
-    TextSpeech
+    TextSpeech \
+	StackView \
+	myplug
 
