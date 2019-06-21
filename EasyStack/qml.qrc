@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CusRect.qml</file>
+        <file>MainSetPage.qml</file>
+    </qresource>
+</RCC>

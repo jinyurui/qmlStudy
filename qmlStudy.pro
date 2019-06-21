@@ -16,8 +16,9 @@ SUBDIRS += \
     TableOne \
     Shader \
     ProArc \
-	Observer \
+    Observer \
     TextSpeech \
-	StackView \
-	myplug
+    StackView \
+    myplug \
+    EasyStack
 
