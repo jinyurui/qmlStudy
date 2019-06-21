@@ -2,6 +2,17 @@ import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.5
 
+/** node
+* @key  Loader.sourceComponent ,
+*       the create context can not get out property, so you should add loader proterty
+* @desc
+*/
+
+/** node
+* @key   Setting by Loader.setSource will not trigger any associated Behaviors.
+* @desc
+*/
+
 Window {
     visible: true
     width: 640

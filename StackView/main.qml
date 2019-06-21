@@ -87,7 +87,7 @@ Window {
                 anchors.centerIn: parent
                 text: "this is " + stackView.depth + " page/n you can click this btn opt"
             }
-            color: Qt.rgba(Math.random(1),Math.random(1),Math.random(1))
+            color: Qt.rgba(Math.random(),Math.random(),Math.random())
         }
     }
 
