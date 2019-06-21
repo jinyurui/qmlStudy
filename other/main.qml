@@ -31,8 +31,15 @@ Window {
         }
     }
 
-    Plugins.TestItem{
+    // qmlExternPlugin , poor the qt.qml.editer can not see it
+    Plugins.TestItem{           // c++
         id: qmlPluginTest
+    }
+
+    Plugins.QmlTest{            // qml
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.margins: 50
     }
 
     ListModel{

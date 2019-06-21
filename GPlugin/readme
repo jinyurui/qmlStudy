@@ -15,8 +15,8 @@ First, we need to inherit the QQmlExtensionPlugin class, which is an abstract ba
 
 [node][qmldir file desc] more can see "Module Definition qmldir Files" on QtHelp
 module MyPlug                >>    as model to import.This is [moduleName]
-plugin GenericPlugin         >>    as plugin to create, then you can use item name on qml.This is c++ class name
-
+QmlTest 1.0 QmlTest.qml      >>    qml part
+plugin GenericPlugin         >>    the lib name ,c++ part , as plugin to create, then you can use item name on qml.
 
 [node][pro file]
 TEMPLATE = lib

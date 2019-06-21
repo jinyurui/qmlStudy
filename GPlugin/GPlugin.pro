@@ -33,7 +33,8 @@ HEADERS += \
     testitem.h
 DISTFILES += \ 
     qmldir \
-    readme
+    readme \
+    QmlTest.qml
 
 unix {
     target.path = /usr/lib

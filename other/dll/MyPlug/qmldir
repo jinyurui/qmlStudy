@@ -1,2 +1,3 @@
 module MyPlug
+QmlTest 1.0 QmlTest.qml
 plugin GenericPlugin
