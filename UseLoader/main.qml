@@ -71,6 +71,32 @@ Window {
         }
     }
 
+    Component{
+        id:comTest        //   com out put only useful
+        Rectangle{
+            id: combody   //   no use this id
+            width: 100
+            height: 100
+            color: useColor
+        }
+    }
+
+    Loader{
+        id: comLoader
+        sourceComponent: comTest
+        anchors.top: parent.top
+        anchors.right: parent.right
+        property color useColor: "red"
+    }
+
+    MouseArea{
+        id: mouseArea
+        anchors.fill: parent
+        onClicked: {
+            comLoader.useColor = Qt.rgba(Math.random(), Math.random(), Math.random())
+        }
+    }
+
     Component.onCompleted: {
         for(var i = 0 ; i < 100 ; i++){
             addressModel.append({"address":"hello__" + i})
