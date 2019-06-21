@@ -20,5 +20,6 @@ SUBDIRS += \
     TextSpeech \
     StackView \
     myplug \
-    EasyStack
+    EasyStack \
+	UseLoader
 
