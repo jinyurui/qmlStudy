@@ -21,5 +21,6 @@ SUBDIRS += \
     StackView \
     myplug \
     EasyStack \
-	UseLoader
+	UseLoader \
+	EasyDataModelWithJsFun
 
