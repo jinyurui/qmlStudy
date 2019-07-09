@@ -12,6 +12,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+win32 {
+    CONFIG(release, debug|release) {
+        SYNC_TARGET_LOCATION_QMLPLUGINS = $$PWD/dll/release
+    } else {
+        SYNC_TARGET_LOCATION_QMLPLUGINS = $$PWD/dll/debug
+    }
+}
+
+SYNC_TARGET_LOCATION_QMLPLUGINS_DEFINE_STRING = SYNC_TARGET_LOCATION_QMLPLUGINS=\"$$SYNC_TARGET_LOCATION_QMLPLUGINS\"
+DEFINES += $$SYNC_TARGET_LOCATION_QMLPLUGINS_DEFINE_STRING
+
+VERSION = 1.0.1
+QMAKE_TARGET_PRODUCT = "Water"
+QMAKE_TARGET_COMPANY = "Company"
+QMAKE_TARGET_COPYRIGHT = "Copyright (c) by Company"
+
+DEFINES += APP_VERSION=\"\\\"$${VERSION}\\\"\" \
+           APP_PRODUCT=\"\\\"$${QMAKE_TARGET_PRODUCT}\\\"\" \
+           APP_COMPANY=\"\\\"$${QMAKE_TARGET_COMPANY}\\\"\" \
+           APP_COPYRIGHT=\"\\\"$${QMAKE_TARGET_COPYRIGHT}\\\"\"
+
 SOURCES += \
         main.cpp \
     srctext.cpp \

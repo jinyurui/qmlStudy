@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include "srctext.h"
 #include "itemlayout.h"
+#include <QDebug>
 
 // get app environ
 extern char **environ;
@@ -29,8 +30,18 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    // import other plugin dll dir [dll/modle/.dll + .qmdir]
-    engine.addImportPath("D:/QtProject/qmlStudy/other/dll/");
+    qDebug() << APP_VERSION;
+    qDebug() << APP_PRODUCT;
+    qDebug() << APP_COMPANY;
+    qDebug() << APP_COPYRIGHT;
+#ifdef SYNC_TARGET_LOCATION_QMLPLUGINS
+#define xstr(s) str(s)
+#define str(s) #s
+    // import other plugin dll dir [dll/debug or release/modle/.dll + .qmdir]
+    QString qmlPluginPath = QStringLiteral(xstr(SYNC_TARGET_LOCATION_QMLPLUGINS));
+    qDebug() << "dll path" << qmlPluginPath;
+    engine.addImportPath(qmlPluginPath);
+#endif
 
     // regiter c++ class for qml
     qmlRegisterType<SrcText>("CPLUS", 1, 0, "SrcText");
