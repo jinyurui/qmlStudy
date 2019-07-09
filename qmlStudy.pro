@@ -22,5 +22,6 @@ SUBDIRS += \
     myplug \
     EasyStack \
 	UseLoader \
-	EasyDataModelWithJsFun
+	EasyDataModelWithJsFun \
+    RccUser
 

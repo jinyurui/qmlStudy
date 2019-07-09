@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon_phone_accept_active.png</file>
+        <file>icon_phone_accept_selected.png</file>
+    </qresource>
+</RCC>
