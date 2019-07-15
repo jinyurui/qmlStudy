@@ -24,5 +24,6 @@ SUBDIRS += \
     UseLoader \
     EasyDataModelWithJsFun \
     RccUser \
-    listener
+    listener \
+	Threadpool
 
