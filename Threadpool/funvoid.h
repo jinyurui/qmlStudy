@@ -16,19 +16,6 @@ public:
     }
 
     // 形参列表
-
-
-    static void print()
-    {
-       qDebug() << "empty" << endl;
-    }
-    //展开函数
-    template <class T, class ...Args>
-    static void print(T head, Args... rest)
-    {
-       qDebug() << "parameter " << head ;
-       print(rest...);
-    }
 };
 
 #endif // FUNVOID_H

@@ -10,10 +10,12 @@ Test::Test()
 void Test::postTask()
 {
     qDebug() << __FUNCTION__ << QThread::currentThreadId();
-    pool->postTask([this](){taskFun(10);});
+    auto ret = pool->postTask([this](){return taskFun(10);});
+    qDebug() << "postRet" << ret.result.get();
 }
 
-void Test::taskFun(int a)
+QString Test::taskFun(int a)
 {
-    qDebug() << __FUNCTION__ << QThread::currentThreadId() << a;
+    qDebug() << __FUNCTION__ << QThread::currentThreadId();
+    return  "this is ok";
 }

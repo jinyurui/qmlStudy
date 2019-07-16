@@ -31,9 +31,11 @@ public:
     template <typename Fun>
     ExecutorResult<decltype(ResultType(&Fun::operator()))> postTask(Fun f)
     {
-        qDebug() << typeid(Fun).name();
+
         static_assert(std::is_copy_constructible<Fun>::value, "tasks requires copying");
         using ReturnType = decltype(ResultType(&Fun::operator()));
+        qDebug() << "you function return type is: ";
+        qDebug() << "\t returnType: " << typeid(ReturnType).name();
         std::shared_ptr<PackagedTask<ReturnType()>> packaged_task;
 
         ExecutorResult<ReturnType> result = post(f, packaged_task);

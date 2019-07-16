@@ -1,16 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "test.h"
-#include <QDebug>
 #include "funvoid.h"
-#include <QList>
 
-
-struct StruTest{
-    bool operator()(int a) const{
-        return a < 10;
-    }
-};
 class TestC{
 public:
     TestC(){}
@@ -31,9 +23,6 @@ int main(int argc, char *argv[])
 
     Test one;
     one.postTask();
-
-    auto renType = FunVoid::ResultType(&StruTest::operator());
-    qDebug() << typeid(renType).name();
 
     return app.exec();
 }

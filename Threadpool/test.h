@@ -9,7 +9,8 @@ public:
     Test();
 
     void postTask();
-    void taskFun(int a);
+    // this will be remove other thread
+    QString taskFun(int a);
 
 private:
     std::shared_ptr<ThreadPool> pool;

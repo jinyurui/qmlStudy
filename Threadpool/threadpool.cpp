@@ -24,7 +24,7 @@ void ThreadPool::runWorkThread(int index)
             uniqueLock.unlock();
             task();
         }
-        qDebug() << "runing workThread -- " << index << QThread::currentThreadId();
+        qDebug() << "runing workThread -- index : " << index << " id: "<< QThread::currentThreadId();
 
     }
 }
