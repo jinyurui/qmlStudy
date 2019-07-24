@@ -25,5 +25,6 @@ SUBDIRS += \
     EasyDataModelWithJsFun \
     RccUser \
     listener \
-	Threadpool
+	Threadpool \
+	vershader
 
