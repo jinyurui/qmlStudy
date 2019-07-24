@@ -26,5 +26,6 @@ SUBDIRS += \
     RccUser \
     listener \
 	Threadpool \
-	vershader
+	vershader \
+	quickfbo
 
