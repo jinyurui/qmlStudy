@@ -1,5 +1,6 @@
 #include "grender.h"
 #include <QOpenGLFramebufferObjectFormat>
+#include "gframebufferobject.h"
 
 GRender::GRender()
 {
@@ -19,4 +20,11 @@ QOpenGLFramebufferObject *GRender::createFramebufferObject(const QSize &size)
     format.setAttachment(QOpenGLFramebufferObject::CombinedDepthStencil);
     format.setSamples(4);
     return new QOpenGLFramebufferObject(size, format);
+}
+
+void GRender::synchronize(QQuickFramebufferObject *fbo)
+{
+    GFrameBufferObject *fboItem = static_cast<GFrameBufferObject *>(fbo);
+    m_pApple->setCameraPosZ(fboItem->posZ());
+    m_pApple->setTurn(fboItem->turn());
 }

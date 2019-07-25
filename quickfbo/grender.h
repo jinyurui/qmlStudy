@@ -11,7 +11,7 @@ public:
 
     void render() override;
     QOpenGLFramebufferObject *createFramebufferObject(const QSize &size) override;
-    //void synchronize(QQuickFramebufferObject *) override;
+    void synchronize(QQuickFramebufferObject *fbo) override;
 
 private:
     Apple *m_pApple;

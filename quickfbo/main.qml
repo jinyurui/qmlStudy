@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
+import QtQuick.Controls 2.5
 import Water 1.0
 
 Window {
@@ -22,14 +23,40 @@ Window {
             anchors.centerIn: parent
             width: 300
             height: 300
+            posZ: posValue.value
+            turn: false
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    gfbo.test()
+                    console.log("w: " + gfbo.width  +" h: " + gfbo.height )
+                }
+            }
         }
 
-        MouseArea{
-            anchors.fill: parent
+        Button{
+            width: 50
+            height: 50
+            text: gfbo.turn ? "turn" : "stop"
             onClicked: {
-                gfbo.test()
-                console.log("w: " + gfbo.width  +" h: " + gfbo.height )
+                gfbo.turn = !gfbo.turn
             }
+            anchors.top: parent.top
+            anchors.right: posValue.left
+            anchors.margins: 20
+        }
+
+        Slider{
+            id: posValue
+            value: 2
+            from: -20
+            to: 20
+            orientation: Qt.Vertical
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.margins: 20
+            width: 10
         }
     }
 

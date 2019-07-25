@@ -15,14 +15,18 @@ public:
     Apple();
 
     void initData();
-
     void render();
+
+    void setCameraPosZ(float posZ);
+    void setTurn(bool t);
 
 private:
     QOpenGLShaderProgram *m_pShader;
     QOpenGLTexture *m_pTexture;
     QOpenGLBuffer buffer;
 
+    float cameraPosZ = 0.0f;
+    bool turn = true;
 };
 
 #endif // APPLE_H

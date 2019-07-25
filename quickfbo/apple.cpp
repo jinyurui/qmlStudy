@@ -11,8 +11,8 @@ void Apple::initData()
     float vertex[] = {
         -1.0f,  1.0f, 0.0f, 0.0f, 1.0f,
         -1.0f, -1.0f, 0.0f, 0.0f, 0.0f,
-         1.0f, -1.0f, 0.0f, 1.0f, 0.0f,
-         1.0f,  1.0f, 0.0f, 1.0f, 1.0f,
+        1.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+        1.0f,  1.0f, 0.0f, 1.0f, 1.0f,
     };
 
     buffer.create();
@@ -43,15 +43,29 @@ void Apple::render()
     buffer.bind();
     m_pShader->bind();
 
-    QMatrix4x4 modelview;
-    modelview.setToIdentity();
+    QMatrix4x4 model;
+    model.setToIdentity();
+    QMatrix4x4 view;
+    view.setToIdentity();
+    view.lookAt(QVector3D(0.0f, 0.0f, cameraPosZ),
+                QVector3D(0.0f, 0.0f, 0.0f),
+                QVector3D(0.0f, 1.0f, 0.0f));
+
+    QMatrix4x4 pro;
+    pro.setToIdentity();
+    pro.perspective(90.0f, 300/300, 0.1f, 1000.0f);
+
 
     static int rota =  0;
-    rota += 1;
+    if(turn){
+        rota += 1;
+    }
     int ret = rota%360;
-    modelview.rotate(ret, QVector3D(0.0f, 1.0f, 0.0f));
+    model.rotate(ret, QVector3D(0.0f, 1.0f, 0.0f));
 
-    m_pShader->setUniformValue("qt_ModelViewProjectionMatrix", modelview);
+    QMatrix4x4 mvp = pro * view * model;
+
+    m_pShader->setUniformValue("qt_ModelViewProjectionMatrix", mvp);
     m_pShader->setUniformValue("qt_Texture0", 0);
     m_pShader->enableAttributeArray(0);
     m_pShader->enableAttributeArray(1);
@@ -66,4 +80,14 @@ void Apple::render()
 
     m_pShader->release();
     buffer.release();
+}
+
+void Apple::setCameraPosZ(float posZ)
+{
+    cameraPosZ = posZ;
+}
+
+void Apple::setTurn(bool t)
+{
+    turn = t;
 }
