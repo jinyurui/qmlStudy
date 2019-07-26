@@ -19,6 +19,7 @@ public:
 
     void setCameraPosZ(float posZ);
     void setTurn(bool t);
+    void setViewWH(float w, float h);
 
 private:
     QOpenGLShaderProgram *m_pShader;
@@ -27,6 +28,8 @@ private:
 
     float cameraPosZ = 0.0f;
     bool turn = true;
+    float viewW;
+    float viewH;
 };
 
 #endif // APPLE_H

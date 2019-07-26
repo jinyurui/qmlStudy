@@ -27,4 +27,5 @@ void GRender::synchronize(QQuickFramebufferObject *fbo)
     GFrameBufferObject *fboItem = static_cast<GFrameBufferObject *>(fbo);
     m_pApple->setCameraPosZ(fboItem->posZ());
     m_pApple->setTurn(fboItem->turn());
+    m_pApple->setViewWH(fboItem->width(), fboItem->height());
 }

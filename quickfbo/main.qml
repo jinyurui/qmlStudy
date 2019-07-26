@@ -4,14 +4,15 @@ import QtQuick.Controls 2.5
 import Water 1.0
 
 Window {
+    id: root
     visible: true
     width: 640
     height: 480
     title: qsTr("Hello World")
-
     Rectangle{
         anchors.fill: parent
         Image {
+            id: imageSrc
             source: "./apple.svg"
             width: 50
             height: 50
@@ -20,18 +21,17 @@ Window {
 
         GFrameBufferObject{
             id: gfbo
-            anchors.centerIn: parent
-            width: 300
-            height: 300
+            anchors.top: imageSrc.bottom
+            anchors.topMargin: 30
+            anchors.left: parent.left
+            anchors.leftMargin: 50
+            anchors.right: parent.right
+            anchors.rightMargin: 50
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 50
             posZ: posValue.value
             turn: false
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    gfbo.test()
-                    console.log("w: " + gfbo.width  +" h: " + gfbo.height )
-                }
-            }
+            topWin: root
         }
 
         Button{
@@ -61,6 +61,6 @@ Window {
     }
 
     Component.onCompleted: {
-        console.log("ok----")
+        gfbo.createViewControl()
     }
 }

@@ -53,7 +53,8 @@ void Apple::render()
 
     QMatrix4x4 pro;
     pro.setToIdentity();
-    pro.perspective(90.0f, 300/300, 0.1f, 1000.0f);
+    // 宽高比 依据item / view 大小
+    pro.perspective(90.0f, viewW/viewH, 0.1f, 1000.0f);
 
 
     static int rota =  0;
@@ -90,4 +91,10 @@ void Apple::setCameraPosZ(float posZ)
 void Apple::setTurn(bool t)
 {
     turn = t;
+}
+
+void Apple::setViewWH(float w, float h)
+{
+    viewW = w;
+    viewH = h;
 }

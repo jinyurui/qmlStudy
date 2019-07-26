@@ -4,6 +4,7 @@
 #include <QQuickFramebufferObject>
 #include "apple.h"
 
+
 class GRender:public QQuickFramebufferObject::Renderer
 {
 public:
@@ -15,6 +16,7 @@ public:
 
 private:
     Apple *m_pApple;
+
 };
 
 #endif // GRENDER_H

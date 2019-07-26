@@ -16,7 +16,8 @@ SOURCES += \
         main.cpp \
     gframebufferobject.cpp \
     grender.cpp \
-    apple.cpp
+    apple.cpp \
+    viewcontrol.cpp
 
 RESOURCES += qml.qrc
 
@@ -34,7 +35,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     gframebufferobject.h \
     grender.h \
-    apple.h
+    apple.h \
+    viewcontrol.h
 
 DISTFILES += \
     ver.vert \
