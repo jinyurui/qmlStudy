@@ -1,0 +1,192 @@
+﻿
+
+
+https://www.cnblogs.com/DswCnblog/p/6700660.html
+http://www.shaderific.com/glsl-functions
+https://cmake.org/cmake/help/v3.15/manual/cmake-commands.7.html
+https://ahkcn.github.io/docs/misc/RegEx-QuickRef.htm
+https://www.kancloud.cn/kangdandan/book/169993
+
+
+
+
+####################
+    JSON
+    jsonarray >> varmap
+    c++  vermap{
+		pro jsonarry
+		varmapdata *private
+	}
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	 qestion   $$$$$$$$$$$$$$$$$$$$$$
+
+typeid(T)
+std::type_index()
+std::map<std::type_index, RefType<void>>
+std::map<std::type_index, object>
+
+
+######################Study&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ as 1:
+     Qt
+ if you dont use QObject , but you need qproterty ,so you can Q_GADGET, but sig and slot you can not use.
+ eg: class Type{
+     	Q_GADGET
+	...
+	Q_PROTERTY(int role READ role WRITE setRole)
+     }
+     Q_DECLARE_METATYPE(Type)
+    Q_GADGET + Q_DECLARE_METATYPE
+ 
+ as 2:
+ use google::protobuf
+	https://yami.io/protobuf/
+
+ as 3:
+ QMl->render
+    com createobj {
+ 	qml: Qt.CreateCom
+	     com.createObject
+
+        c++: qml com id this equal QQmlCom* p
+             QQmlContext = com->creationContext/
+				qmlContext(parentItem)
+	     object = com->create()
+	
+    }
+  
+  the diff of
+    item ->setItemParent
+    ->setParent
+
+  Com/Loader
+    Loader change pro >> com.src.pro
+    Loader.active ? item[1] : item[0]   instantiated , item is null 
+    Com.onCompleted:{}    test
+
+  as 4:
+    Shape
+    pathAtc
+
+    Bing on proterty
+
+    Proterty
+    Qt.binding(function (){return var data})
+
+    Model/Data
+    c++ json >> QVarmap
+
+    ViewTransition
+
+  as 5:
+     protobuf,
+     <DATA[no view item]>  Object[Q_OBJECT] ->  easy object[Q_GADGET]  ->  privite ipmData  ->  .proto file  -> . pd.h 
+  
+     < View[view item]  >  Item[Q_OBJECT] ->> ::: createCom and createObject.
+
+  as 6:
+    std:share_ptr;
+    class A: public std::enable_shared_from_this<A>{
+	 void test(std::share_ptr<A> callBack);
+         // you can use 
+         // A object is controled by std::share_ptr, get copy like: share_from_this();
+    }
+  
+  as 7:
+  control layout
+  customizing Qt Quick Controls 2
+  
+  as 8:
+  Window is not item , Window >> QQuickWindow >> QWindow >> QObject QSurface. rootItem will be created then.
+  so you dont use it anchor...
+  Window{
+      contentItem  //[read-only] contentItem : Item , The invisible root item of the scene.
+  }
+ 
+  as 9:
+  protobuf about     you can view         https://itbilu.com/other/relate/415FMMWe-.html
+  file *.proto
+  bild this file  >> pd.h  .pd.cc
+  how to set proto
+  how to get proto
+ 
+  as 10:
+      QObject{                                      SrcData{				
+      proterty(...);					// easy src data, has set get fun, like struct
+      ObjectData* d_ptr;                            
+      };		                            };
+      ObjectData{				    QData{
+      							// easy object, pack SrcData, so you can sue proterty
+      QObject*    q_ptr;			    std::share_ptr<SrcData> spSrc;
+      };				            };
+
+  as 11:
+      QtPlugin []
+      create custom plug and load use it.
+      is seam to use dll,
+      抽象的接口，
+      插件通过继承，实现具体的接口。
+
+  as 12: 
+      test -> speech
+      one : https://gstreamer.freedesktop.org/download/
+      Qt:   texttospeech
+
+  as 13：
+      //  qml 中注册单例
+     // protpbuf  with C++
+     // 通知订阅模式
+  
+  as 14：
+     QQmlExtensionPlugin
+
+  as 15:
+     class has iner class number  , limit the effect 
+     class a{
+     
+     privite:
+	class aImpl;
+	std::unique_ptr<aImpl> m_pImpl;
+     };
+
+  as 16：
+     code layers
+     QFa{
+       QFaImpl{
+         virtual_Fa{
+           FaImpl
+  
+  as 17:
+     qmlPlugin
+     qmlExternPlugin
+	item    -> qquickitem ?
+        plugin  -> QQmlExtensionPlugin
+        qmldir  -> module plugin typeinfo qmlfiles
+        qmltypes -> create by qmlplugindump
+ 
+  as 18:
+     qt.qrc
+	edit add png......
+     rcc *.qrc -o out.rcc
+	
+  as 19：
+     c++ smartpointer
+	std::shared_ptr , 不要通过裸指针创建, 不建议使用数组
+        std::weak_ptr,   弱引用,不计数, expired() ： 原始指针是否过期， lock() : 获取std::shared_ptr
+        std::unique_ptr, reset relase
+
+  as 20: 经特殊函数模板化, R class::Fun(args ....) >> void fun()
+     
+
+https://www.ics.com/blog 
+
+std::unique_ptr
+
+using dif typedef
+
+std::bind / callBack and register [tongzhi dingyue] / Qt easy object proterty /  Qt << == >> protobuf / Qt dq pointer / 
+
+typeof modeData == "undefind" ? A : B , eg typeof "10"  > string
+
+
