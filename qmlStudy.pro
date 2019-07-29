@@ -27,5 +27,6 @@ SUBDIRS += \
     listener \
 	Threadpool \
 	vershader \
-	quickfbo
+	quickfbo \
+	Abyss
 
