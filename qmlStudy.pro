@@ -28,5 +28,6 @@ SUBDIRS += \
 	Threadpool \
 	vershader \
 	quickfbo \
-	Abyss
+	Abyss \
+	ModelCallbackShader
 
