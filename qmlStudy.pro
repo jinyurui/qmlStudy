@@ -29,5 +29,6 @@ SUBDIRS += \
 	vershader \
 	quickfbo \
 	Abyss \
-	ModelCallbackShader
+	ModelCallbackShader \
+	QtThreadPool
 
