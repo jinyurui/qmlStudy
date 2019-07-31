@@ -31,5 +31,6 @@ SUBDIRS += \
 	Abyss \
 	ModelCallbackShader \
 	QtThreadPool \
-	ViewTrans
+	ViewTrans \
+	VarlistModle
 
