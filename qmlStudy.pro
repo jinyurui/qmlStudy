@@ -30,5 +30,6 @@ SUBDIRS += \
 	quickfbo \
 	Abyss \
 	ModelCallbackShader \
-	QtThreadPool
+	QtThreadPool \
+	ViewTrans
 
