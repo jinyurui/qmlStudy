@@ -32,5 +32,6 @@ SUBDIRS += \
 	ModelCallbackShader \
 	QtThreadPool \
 	ViewTrans \
-	VarlistModle
+	VarlistModle \
+	Dynimac
 
