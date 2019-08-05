@@ -33,5 +33,6 @@ SUBDIRS += \
 	QtThreadPool \
 	ViewTrans \
 	VarlistModle \
-	Dynimac
+	Dynimac \
+	TreeAndState
 
