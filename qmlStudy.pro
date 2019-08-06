@@ -35,5 +35,5 @@ SUBDIRS += \
 	VarlistModle \
 	Dynimac \
 	TreeAndState \
-	QmlListProterty
-
+	QmlListProterty \
+	ComObject
