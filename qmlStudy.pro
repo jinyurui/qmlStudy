@@ -34,5 +34,6 @@ SUBDIRS += \
 	ViewTrans \
 	VarlistModle \
 	Dynimac \
-	TreeAndState
+	TreeAndState \
+	QmlListProterty
 
