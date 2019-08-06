@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 
+// ListModel function opt jsobject
+// use Loader not item's visible as subnode
 Item {
     id: root
     width: 640
@@ -15,7 +17,7 @@ Item {
         snapMode: ListView.SnapToItem
         delegate: Item{
             width: 100
-            height: childView.visible ? 30 + childView.height : 30
+            height: subLoader.active ? 30 + subLoader.height : 30
             Rectangle{
                 border.color: "black"
                 width: 100
@@ -29,7 +31,7 @@ Item {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked:{
-                        childView.visible = !childView.visible
+                        subLoader.active = !subLoader.active
                     }
                 }
                 Row{
@@ -42,7 +44,7 @@ Item {
                         height: 20
                         onClicked: {
                             var data = rootModel.get(index).subData;
-                            data.append({"desc":"hello"})
+                            data.append({"desc": data.count.toString(10)})
                         }
                     }
                     RoundButton{
@@ -51,26 +53,27 @@ Item {
                         height: 20
                         onClicked: {
                             var data = rootModel.get(index).subData;
-                            data.remove(index)
+                            data.remove(data.count - 1)
                         }
                     }
                 }
             }
-
-            ListView{
-                id: childView
+            Loader{
+                id: subLoader
                 x: 10
                 y: 30
-                model: subData
+                active: false
                 height: 30*subData.count
-                visible: false
-                delegate: Rectangle{
-                    border.color: "red"
-                    width: 90
-                    height: 30
-                    Text {
-                        anchors.centerIn: parent
-                        text: desc
+                sourceComponent: ListView{
+                    model: subData
+                    delegate: Rectangle{
+                        border.color: "red"
+                        width: 90
+                        height: 30
+                        Text {
+                            anchors.centerIn: parent
+                            text: desc
+                        }
                     }
                 }
             }
